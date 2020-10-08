@@ -1,0 +1,19 @@
+{
+  "name": "sql-migration",
+  "version": "1.0.0",
+  "description": "NodeJs tools to create sql migration. Use to keep tracking of sql database change with source control",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kb7-44/sql-migration.git"
+  },
+  "author": "Kevin Bessette",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kb7-44/sql-migration/issues"
+  },
+  "homepage": "https://github.com/kb7-44/sql-migration#readme"
+}
