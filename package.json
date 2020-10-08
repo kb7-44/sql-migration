@@ -4,6 +4,8 @@
   "description": "NodeJs tools to create sql migration. Use to keep tracking of sql database change with source control",
   "main": "index.js",
   "scripts": {
+    "migrate": "node --experimental-modules commands/node_migrate",
+    "make:migration": "node --experimental-modules commands/node_make-migration",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
