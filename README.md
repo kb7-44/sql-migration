@@ -1,2 +1,3 @@
 # sql-migration
-Basic migration tools in sql for source controlling database
+NodeJs tools to create sql migration.
+Use to keep tracking of sql database change with source control
