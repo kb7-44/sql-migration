@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { createMigrationTable, getNextMigrationSeq, getFileToMigrate, migrateFile } = require('../mariadb/mariadb_migration.js');
 
 const run = async () => {

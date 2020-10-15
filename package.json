@@ -1,12 +1,16 @@
 {
   "name": "basic-sql-mig",
-  "version": "0.0.0-alpha",
+  "version": "1.0.1",
   "description": "First package ever! Testing that npm package thing!",
   "main": "index.js",
   "scripts": {
     "migrate": "node commands/node_migrate",
     "make:migration": "node commands/node_make-migration",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "migrate": "commands/node_migrate.js",
+    "make:migration": "commands/node_make-migration.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
