@@ -9,7 +9,7 @@ const db_config = {
   database: process.env.DB_DATABASE,
   connectionLimit: 5
 }
-console.log(db_config);
+
 const pool = mariadb.createPool(db_config);
 
 module.exports.execute = async (query, params) => {
