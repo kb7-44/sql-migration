@@ -1,7 +1,7 @@
-import { execute } from '../mariadbConnector.js';
-import { readdir, readFile } from 'fs';
+const { execute } = require('./mariadb_connector.js');
+const { readdir, readFile }  = require('fs');
 
-export const getFileToMigrate = async () => {
+module.exports.getFileToMigrate = async () => {
   try {
     const migrationFiles = await _getFilesInMigrationsDirectory;
     const alreadyMigratedFiles = await _getFilesAlreadyMigrated();
@@ -20,7 +20,7 @@ export const getFileToMigrate = async () => {
 };
 
 const _getFilesInMigrationsDirectory = new Promise((resolve, reject) => {
-  readdir('databases/migrations/', (err, filenames) => {
+  readdir('migrations/', (err, filenames) => {
     err ? reject(err) : resolve(filenames);
   });
 });
@@ -30,7 +30,7 @@ const _getFilesAlreadyMigrated = async () => {
   return rows.length > 0 ? Array.from(rows.map(elt => elt.name)) : [];
 }
 
-export const createMigrationTable = async () => {
+module.exports.createMigrationTable = async () => {
   try {
     const result = await execute(`
 
@@ -47,7 +47,7 @@ export const createMigrationTable = async () => {
   }
 };
 
-export const getNextMigrationSeq = async () => {
+module.exports.getNextMigrationSeq = async () => {
   try {
     const result = await execute('SELECT seq FROM migrations ORDER BY id DESC LIMIT 1');
     return result.length > 0 ? result[0].seq + 1 : 1;
@@ -56,7 +56,7 @@ export const getNextMigrationSeq = async () => {
   }
 }
 
-export const migrateFile = async (file, seq) => {
+module.exports.migrateFile = async (file, seq) => {
   try {
     const query = await _getFileContent(file);
     const resQry = await execute(query);
@@ -68,7 +68,7 @@ export const migrateFile = async (file, seq) => {
 }
 
 const _getFileContent = (file) => new Promise((resolve, reject) => {
-  readFile('databases/migrations/' + file, 'utf8', (err, data) => {
+  readFile('migrations/' + file, 'utf8', (err, data) => {
     err ? reject(err) : resolve(data);
   });
 });

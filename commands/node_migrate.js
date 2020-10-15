@@ -1,4 +1,4 @@
-import { createMigrationTable, getNextMigrationSeq, getFileToMigrate, migrateFile } from './mariadb_migration.js';
+const { createMigrationTable, getNextMigrationSeq, getFileToMigrate, migrateFile } = require('../mariadb/mariadb_migration.js');
 
 const run = async () => {
   try {
